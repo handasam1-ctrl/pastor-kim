@@ -1,0 +1,43 @@
+{
+  "name": "김일수 — 해와 달이 머무는 땅 고창",
+  "short_name": "김일수 목사",
+  "description": "공유지적 인류주의 · 예전교회 담임목사 · 시민활동가",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#faf7f2",
+  "theme_color": "#3a2e1e",
+  "lang": "ko",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["lifestyle", "education", "social"],
+  "shortcuts": [
+    {
+      "name": "사역과 활동",
+      "url": "/#ministry",
+      "description": "목회·기후·농촌·문화 활동 보기"
+    },
+    {
+      "name": "최근 에세이",
+      "url": "/#writings",
+      "description": "최근 글 모음 보기"
+    },
+    {
+      "name": "연결하기",
+      "url": "/#connect",
+      "description": "이메일·교회·채널 연결"
+    }
+  ]
+}

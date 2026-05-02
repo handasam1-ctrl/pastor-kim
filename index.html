@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>김일수 — 해와 달이 머무는 땅 고창</title>
+
+<!-- PWA 필수 설정 -->
+<link rel="manifest" href="/manifest.json">
+<meta name="theme-color" content="#3a2e1e">
+<meta name="mobile-web-app-capable" content="yes">
+
+<!-- 아이폰(iOS) 홈 화면 추가 설정 -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="김일수 목사">
+<link rel="apple-touch-icon" href="/icon-192.png">
+
+<!-- SNS 공유 미리보기 -->
+<meta property="og:title" content="김일수 — 해와 달이 머무는 땅 고창">
+<meta property="og:description" content="공유지적 인류주의 · 예전교회 담임목사 · 시민활동가 · 작가">
+<meta property="og:image" content="/icon-512.png">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;500;600;700&family=Noto+Sans+KR:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --earth: #3a2e1e;
+    --earth-mid: #6b5740;
+    --earth-light: #c4a882;
+    --earth-pale: #f0e8da;
+    --sky: #2b4a6b;
+    --sky-mid: #4a7fa5;
+    --sky-light: #a8c8e0;
+    --sky-pale: #e8f3fa;
+    --green-deep: #2d4a2d;
+    --green-mid: #4e7c4e;
+    --green-light: #a8c8a8;
+    --cream: #faf7f2;
+    --warm-white: #fffdf9;
+    --text-dark: #1a1209;
+    --text-mid: #4a3c28;
+    --text-muted: #8c7c64;
+    --border: rgba(106,87,64,0.15);
+    --border-strong: rgba(106,87,64,0.3);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Noto Serif KR', 'Batang', Georgia, serif;
+    background: var(--cream);
+    color: var(--text-dark);
+    line-height: 1.8;
+    overflow-x: hidden;
+  }
+
+  /* ── 상단 내비게이션 ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(250,247,242,0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 0.5px solid var(--border-strong);
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+  }
+
+  .nav-logo {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--earth);
+    letter-spacing: 0.05em;
+    text-decoration: none;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 400;
+    color: var(--text-mid);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--earth); }
+
+  /* ── 영웅 섹션 ── */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-left {
+    background: var(--earth);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 8rem 4rem 5rem;
+    position: relative;
+  }
+
+  .hero-left::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: 
+      radial-gradient(ellipse at 30% 20%, rgba(196,168,130,0.12) 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 80%, rgba(43,74,107,0.15) 0%, transparent 50%);
+  }
+
+  .hero-eyebrow {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 300;
+    color: var(--earth-light);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    position: relative;
+  }
+
+  .hero-title {
+    font-size: clamp(2.8rem, 5vw, 4.5rem);
+    font-weight: 300;
+    color: var(--warm-white);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin-bottom: 2rem;
+    position: relative;
+  }
+
+  .hero-title em {
+    font-style: normal;
+    color: var(--earth-light);
+    display: block;
+  }
+
+  .hero-desc {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 300;
+    color: rgba(250,247,242,0.65);
+    line-height: 2;
+    max-width: 36ch;
+    position: relative;
+  }
+
+  .hero-right {
+    background: var(--sky-pale);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 8rem 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-right::before {
+    content: '';
+    position: absolute;
+    width: 600px; height: 600px;
+    border-radius: 50%;
+    border: 1px solid rgba(43,74,107,0.1);
+    top: 50%; left: 50%;
+    transform: translate(-50%,-50%);
+  }
+
+  .hero-right::after {
+    content: '';
+    position: absolute;
+    width: 400px; height: 400px;
+    border-radius: 50%;
+    border: 1px solid rgba(43,74,107,0.08);
+    top: 50%; left: 50%;
+    transform: translate(-50%,-50%);
+  }
+
+  .hero-symbol {
+    font-size: 6rem;
+    line-height: 1;
+    position: relative;
+    z-index: 1;
+    filter: drop-shadow(0 8px 24px rgba(43,74,107,0.12));
+  }
+
+  .hero-quote {
+    margin-top: 3rem;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    max-width: 28ch;
+  }
+
+  .hero-quote p {
+    font-size: 1.05rem;
+    font-weight: 400;
+    color: var(--sky);
+    line-height: 1.9;
+  }
+
+  .hero-quote cite {
+    display: block;
+    margin-top: 1rem;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 300;
+    color: var(--sky-mid);
+    font-style: normal;
+    letter-spacing: 0.05em;
+  }
+
+  /* ── 정체성 태그 띠 ── */
+  .identity-strip {
+    background: var(--earth-pale);
+    border-top: 0.5px solid var(--border-strong);
+    border-bottom: 0.5px solid var(--border-strong);
+    padding: 1.2rem 0;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  .identity-track {
+    display: inline-flex;
+    gap: 0;
+    animation: marquee 30s linear infinite;
+  }
+
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  .identity-tag {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 300;
+    color: var(--earth-mid);
+    letter-spacing: 0.05em;
+    padding: 0 2.5rem;
+    border-right: 0.5px solid var(--border-strong);
+    white-space: nowrap;
+  }
+
+  /* ── 섹션 공통 ── */
+  section { padding: 6rem 0; }
+
+  .section-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2.5rem;
+  }
+
+  .section-label {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 400;
+    color: var(--text-muted);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 3rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 0.5px;
+    background: var(--border-strong);
+    max-width: 80px;
+  }
+
+  /* ── 소개 섹션 ── */
+  #about { background: var(--warm-white); }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 6rem;
+    align-items: start;
+  }
+
+  .about-left h2 {
+    font-size: 2.5rem;
+    font-weight: 300;
+    color: var(--earth);
+    line-height: 1.3;
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.02em;
+  }
+
+  .about-left p {
+    font-size: 1rem;
+    color: var(--text-mid);
+    line-height: 2;
+    margin-bottom: 1rem;
+  }
+
+  .timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .timeline-item {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 1.5rem;
+    padding: 1.5rem 0;
+    border-bottom: 0.5px solid var(--border);
+  }
+
+  .timeline-item:last-child { border-bottom: none; }
+
+  .timeline-year {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--earth-light);
+    padding-top: 0.2rem;
+    letter-spacing: 0.02em;
+  }
+
+  .timeline-content strong {
+    display: block;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--earth);
+    margin-bottom: 0.25rem;
+  }
+
+  .timeline-content span {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  /* ── 사역·활동 섹션 ── */
+  #ministry { background: var(--cream); }
+
+  .ministry-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5px;
+    background: var(--border-strong);
+    border: 0.5px solid var(--border-strong);
+  }
+
+  .ministry-card {
+    background: var(--warm-white);
+    padding: 2.5rem 2rem;
+    transition: background 0.25s;
+  }
+
+  .ministry-card:hover { background: var(--earth-pale); }
+
+  .ministry-icon {
+    font-size: 1.8rem;
+    margin-bottom: 1.2rem;
+    display: block;
+  }
+
+  .ministry-card h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--earth);
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.01em;
+  }
+
+  .ministry-card p {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.9;
+  }
+
+  /* ── 사유 공간 섹션 ── */
+  #thought {
+    background: var(--earth);
+    position: relative;
+    overflow: hidden;
+  }
+
+  #thought::before {
+    content: '';
+    position: absolute;
+    top: -200px; right: -200px;
+    width: 600px; height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(ellipse, rgba(196,168,130,0.08) 0%, transparent 70%);
+  }
+
+  #thought .section-label { color: var(--earth-light); }
+  #thought .section-label::after { background: rgba(196,168,130,0.3); }
+
+  .thought-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    margin-bottom: 4rem;
+  }
+
+  .thought-header h2 {
+    font-size: 2.8rem;
+    font-weight: 300;
+    color: var(--warm-white);
+    line-height: 1.25;
+    letter-spacing: -0.02em;
+  }
+
+  .thought-header p {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 0.95rem;
+    color: rgba(250,247,242,0.6);
+    line-height: 2;
+    align-self: end;
+  }
+
+  .thought-pillars {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: rgba(196,168,130,0.2);
+  }
+
+  .pillar {
+    background: rgba(58,46,30,0.8);
+    padding: 2rem 1.5rem;
+    transition: background 0.25s;
+  }
+
+  .pillar:hover { background: rgba(58,46,30,0.5); }
+
+  .pillar-num {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 300;
+    color: var(--earth-light);
+    letter-spacing: 0.1em;
+    margin-bottom: 1rem;
+  }
+
+  .pillar h4 {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--warm-white);
+    margin-bottom: 0.75rem;
+    line-height: 1.4;
+  }
+
+  .pillar p {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 0.82rem;
+    color: rgba(250,247,242,0.5);
+    line-height: 1.8;
+  }
+
+  /* ── 에세이·글 섹션 ── */
+  #writings { background: var(--sky-pale); }
+
+  .writings-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border-top: 0.5px solid var(--border-strong);
+  }
+
+  .writing-item {
+    display: grid;
+    grid-template-columns: 120px 1fr auto;
+    gap: 2rem;
+    align-items: center;
+    padding: 1.8rem 0;
+    border-bottom: 0.5px solid var(--border);
+    text-decoration: none;
+    color: inherit;
+    transition: padding-left 0.2s;
+  }
+
+  .writing-item:hover { padding-left: 0.5rem; }
+
+  .writing-category {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 400;
+    color: var(--text-muted);
+    letter-spacing: 0.08em;
+  }
+
+  .writing-title {
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--text-dark);
+  }
+
+  .writing-arrow {
+    font-size: 1rem;
+    color: var(--text-muted);
+    transition: transform 0.2s;
+  }
+
+  .writing-item:hover .writing-arrow { transform: translateX(4px); }
+
+  /* ── 연결 섹션 ── */
+  #connect { background: var(--warm-white); }
+
+  .connect-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 5rem;
+    align-items: start;
+  }
+
+  .connect-intro h2 {
+    font-size: 2.5rem;
+    font-weight: 300;
+    color: var(--earth);
+    line-height: 1.3;
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.02em;
+  }
+
+  .connect-intro p {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 0.92rem;
+    color: var(--text-mid);
+    line-height: 2;
+  }
+
+  .connect-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    background: var(--border-strong);
+    border: 0.5px solid var(--border-strong);
+  }
+
+  .connect-card {
+    background: var(--cream);
+    padding: 1.5rem 1.8rem;
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    text-decoration: none;
+    color: inherit;
+    transition: background 0.2s;
+  }
+
+  .connect-card:hover { background: var(--earth-pale); }
+
+  .connect-card-icon {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: var(--earth-pale);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1rem;
+    flex-shrink: 0;
+    border: 0.5px solid var(--border-strong);
+  }
+
+  .connect-card-info strong {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--earth);
+    margin-bottom: 0.2rem;
+  }
+
+  .connect-card-info span {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+  }
+
+  /* ── 푸터 ── */
+  footer {
+    background: var(--text-dark);
+    padding: 3rem 2.5rem;
+  }
+
+  .footer-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+  }
+
+  .footer-left p {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 0.8rem;
+    color: rgba(250,247,242,0.4);
+    line-height: 1.8;
+  }
+
+  .footer-left strong {
+    display: block;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: rgba(250,247,242,0.8);
+    margin-bottom: 0.3rem;
+    font-family: 'Noto Serif KR', serif;
+  }
+
+  .footer-right {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 0.78rem;
+    color: rgba(250,247,242,0.25);
+    text-align: right;
+    line-height: 1.8;
+  }
+
+  /* ── 반응형 ── */
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; }
+    .hero-left { padding: 7rem 2rem 3rem; min-height: 60vh; }
+    .hero-right { padding: 3rem 2rem 4rem; min-height: 40vh; }
+    .about-grid, .thought-header, .connect-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .ministry-grid { grid-template-columns: 1fr; }
+    .thought-pillars { grid-template-columns: 1fr 1fr; }
+    .writing-item { grid-template-columns: 90px 1fr auto; }
+    nav { padding: 0 1.2rem; }
+    .nav-links { gap: 1.2rem; }
+    .section-inner { padding: 0 1.5rem; }
+    .footer-inner { flex-direction: column; gap: 1.5rem; align-items: start; }
+  }
+
+  @media (max-width: 600px) {
+    .thought-pillars { grid-template-columns: 1fr; }
+    .nav-links { display: none; }
+    .writing-item { grid-template-columns: 1fr auto; }
+    .writing-category { display: none; }
+  }
+
+  /* ── 진입 애니메이션 ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-eyebrow { animation: fadeUp 0.8s ease both 0.2s; }
+  .hero-title { animation: fadeUp 0.8s ease both 0.4s; }
+  .hero-desc { animation: fadeUp 0.8s ease both 0.6s; }
+  .hero-symbol { animation: fadeUp 0.8s ease both 0.5s; }
+  .hero-quote { animation: fadeUp 0.8s ease both 0.7s; }
+</style>
+</head>
+<body>
+
+<!-- 내비게이션 -->
+<nav>
+  <a href="#" class="nav-logo">김일수 金一洙</a>
+  <ul class="nav-links">
+    <li><a href="#about">소개</a></li>
+    <li><a href="#ministry">사역과 활동</a></li>
+    <li><a href="#thought">사유</a></li>
+    <li><a href="#writings">글</a></li>
+    <li><a href="#connect">연결</a></li>
+  </ul>
+</nav>
+
+<!-- 영웅 -->
+<section class="hero" id="home">
+  <div class="hero-left">
+    <p class="hero-eyebrow">목사 · 시민 · 활동가 · 작가</p>
+    <h1 class="hero-title">
+      해와 달이<br>
+      <em>머무는 땅</em><br>
+      고창에서
+    </h1>
+    <p class="hero-desc">
+      공유지적 인류주의의 눈으로<br>
+      농촌의 소멸을 살피고,<br>
+      공동체의 미래를 함께 묻습니다.
+    </p>
+  </div>
+  <div class="hero-right">
+    <div class="hero-symbol">☀️🌙</div>
+    <div class="hero-quote">
+      <p>땅이 있어야 사람이 있고,<br>사람이 있어야 마을이 있고,<br>마을이 있어야 교회가 있습니다.</p>
+      <cite>— 공음면 예전교회 목회 철학</cite>
+    </div>
+  </div>
+</section>
+
+<!-- 정체성 띠 -->
+<div class="identity-strip">
+  <div class="identity-track">
+    <span class="identity-tag">담임목사</span>
+    <span class="identity-tag">시민활동가</span>
+    <span class="identity-tag">시민과학자</span>
+    <span class="identity-tag">기후환경전문강사</span>
+    <span class="identity-tag">지속가능발전협의회 위원</span>
+    <span class="identity-tag">농촌활동가</span>
+    <span class="identity-tag">마을만들기 기획자</span>
+    <span class="identity-tag">기본소득 전문가</span>
+    <span class="identity-tag">문화도시 추진단</span>
+    <span class="identity-tag">정보화농업인 수석부회장</span>
+    <span class="identity-tag">작가</span>
+    <span class="identity-tag">공유지적 인류주의자</span>
+    <!-- 반복 (마퀴 연속) -->
+    <span class="identity-tag">담임목사</span>
+    <span class="identity-tag">시민활동가</span>
+    <span class="identity-tag">시민과학자</span>
+    <span class="identity-tag">기후환경전문강사</span>
+    <span class="identity-tag">지속가능발전협의회 위원</span>
+    <span class="identity-tag">농촌활동가</span>
+    <span class="identity-tag">마을만들기 기획자</span>
+    <span class="identity-tag">기본소득 전문가</span>
+    <span class="identity-tag">문화도시 추진단</span>
+    <span class="identity-tag">정보화농업인 수석부회장</span>
+    <span class="identity-tag">작가</span>
+    <span class="identity-tag">공유지적 인류주의자</span>
+  </div>
+</div>
+
+<!-- 소개 -->
+<section id="about">
+  <div class="section-inner">
+    <p class="section-label">소개</p>
+    <div class="about-grid">
+      <div class="about-left">
+        <h2>시골 목사의<br>넓은 시선</h2>
+        <p>1964년 전북 고창군 대산면에서 태어나, 같은 땅의 흙 냄새를 맡으며 30년 가까이 예전교회 강단을 지켜왔습니다.</p>
+        <p>신학을 공부하면서도 철학·사회학·생태학·데이터 과학의 언어를 빌려 세계를 읽습니다. 공유지(Commons)가 사라지는 농촌 현실이 가장 큰 신학적 과제라고 믿습니다.</p>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <span class="timeline-year">1964</span>
+          <div class="timeline-content">
+            <strong>전북 고창군 대산면 출생</strong>
+            <span>장동 마을, 고창 땅이 고향</span>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-year">호남신학</span>
+          <div class="timeline-content">
+            <strong>호남신학교 수학</strong>
+            <span>광주 · 군종 사역(강원 화천 무호교회)</span>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-year">부교역</span>
+          <div class="timeline-content">
+            <strong>고창 상하교회 · 여수 둔덕교회</strong>
+            <span>농어촌 현장에서 익힌 목회 감각</span>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-year">1990년대</span>
+          <div class="timeline-content">
+            <strong>예전교회 담임 (예장통합)</strong>
+            <span>고창군 공음면 · 현재까지</span>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-year">현재</span>
+          <div class="timeline-content">
+            <strong>다중 정체성의 실천</strong>
+            <span>목사 · 활동가 · 시민과학자 · 작가</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 사역과 활동 -->
+<section id="ministry">
+  <div class="section-inner">
+    <p class="section-label">사역과 활동</p>
+    <div class="ministry-grid">
+      <div class="ministry-card">
+        <span class="ministry-icon">🕊️</span>
+        <h3>목회 · 설교</h3>
+        <p>예장통합 소속 예전교회 담임목사. 성서 본문을 신학·철학·현실과 엮는 설교로 농촌 공동체를 섬깁니다.</p>
+      </div>
+      <div class="ministry-card">
+        <span class="ministry-icon">🌿</span>
+        <h3>기후 · 환경 교육</h3>
+        <p>기후환경전문강사로서 지역 주민과 농업인에게 기후위기의 현실과 대안적 삶을 강의합니다.</p>
+      </div>
+      <div class="ministry-card">
+        <span class="ministry-icon">🏡</span>
+        <h3>마을 · 농촌 활동</h3>
+        <p>마을만들기 기획자로서 농촌 소멸에 맞서 공동체 회복과 지역 자원 발굴을 실천합니다.</p>
+      </div>
+      <div class="ministry-card">
+        <span class="ministry-icon">📡</span>
+        <h3>정보화 농업</h3>
+        <p>한국정보화농업인중앙연합회 수석부회장. 스마트팜과 데이터 농업을 고창 농업인과 나눕니다.</p>
+      </div>
+      <div class="ministry-card">
+        <span class="ministry-icon">🌱</span>
+        <h3>지속가능발전</h3>
+        <p>전북특별자치도지속가능발전협의회 위원으로 지역의 생태·사회·경제 균형을 함께 고민합니다.</p>
+      </div>
+      <div class="ministry-card">
+        <span class="ministry-icon">🎭</span>
+        <h3>문화도시 기획</h3>
+        <p>문화도시 시민추진단으로 고창의 문화적 잠재력을 발굴하고 지역관광 전문가 시각으로 기획합니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 사유 -->
+<section id="thought">
+  <div class="section-inner">
+    <p class="section-label">중심 사유</p>
+    <div class="thought-header">
+      <h2>공유지적<br>인류주의<br>(Commons-based<br>Humanism)</h2>
+      <p>땅·물·공기·지식·문화는 누군가의 소유가 아니라 모두의 공유지입니다. 농촌이 소멸하는 것은 공유지가 먼저 사라지기 때문입니다. 기본소득, 마을만들기, 생태 신학이 하나의 뿌리에서 자랍니다.</p>
+    </div>
+    <div class="thought-pillars">
+      <div class="pillar">
+        <p class="pillar-num">01</p>
+        <h4>기본소득과<br>공유 배당</h4>
+        <p>모든 존재는 공유지로부터 탄생합니다. 기본소득은 시혜가 아니라 공유 배당입니다.</p>
+      </div>
+      <div class="pillar">
+        <p class="pillar-num">02</p>
+        <h4>농촌 소멸 대응</h4>
+        <p>인구 감소가 아니라 공동체 해체가 문제입니다. 관계망의 복원이 먼저입니다.</p>
+      </div>
+      <div class="pillar">
+        <p class="pillar-num">03</p>
+        <h4>생태 신학</h4>
+        <p>창조는 착취의 대상이 아닙니다. 땅과의 화해가 곧 하나님과의 화해입니다.</p>
+      </div>
+      <div class="pillar">
+        <p class="pillar-num">04</p>
+        <h4>데이터와 인문학</h4>
+        <p>숫자에는 영혼이 있습니다. 알고리즘도 윤리를 배워야 합니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 글 -->
+<section id="writings">
+  <div class="section-inner">
+    <p class="section-label">최근 에세이</p>
+    <div class="writings-list">
+      <a href="#" class="writing-item">
+        <span class="writing-category">데이터 · 인문학</span>
+        <span class="writing-title">숫자의 영혼, 알고리즘의 윤리 — 데이터 과학과 인문학의 융합이 열어갈 공유지적 미래</span>
+        <span class="writing-arrow">→</span>
+      </a>
+      <a href="#" class="writing-item">
+        <span class="writing-category">AI · 노동</span>
+        <span class="writing-title">AI 기본사회가 여는 사회적 일자리의 방향</span>
+        <span class="writing-arrow">→</span>
+      </a>
+      <a href="#" class="writing-item">
+        <span class="writing-category">철학 · 신학</span>
+        <span class="writing-title">지고선(至善)의 사유 — 선함의 끝은 어디인가</span>
+        <span class="writing-arrow">→</span>
+      </a>
+      <a href="#" class="writing-item">
+        <span class="writing-category">농촌 · 공동체</span>
+        <span class="writing-title">소멸의 땅에서 공유지를 묻다</span>
+        <span class="writing-arrow">→</span>
+      </a>
+      <a href="#" class="writing-item">
+        <span class="writing-category">사유 · 성찰</span>
+        <span class="writing-title">고독을 잃어버린 시간 — 현대사회의 실존적 위기</span>
+        <span class="writing-arrow">→</span>
+      </a>
+      <a href="#" class="writing-item">
+        <span class="writing-category">기독교 · 정치</span>
+        <span class="writing-title">기독교와 정치 — 교회는 어떻게 세상과 대화하는가</span>
+        <span class="writing-arrow">→</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- 연결 -->
+<section id="connect">
+  <div class="section-inner">
+    <p class="section-label">연결</p>
+    <div class="connect-grid">
+      <div class="connect-intro">
+        <h2>함께<br>이야기<br>나눕시다</h2>
+        <p>강의, 원고, 공동체 기획, 시민활동 협업 등 어떤 주제든 환영합니다. 고창에서 고민을 나눌 분들을 기다립니다.</p>
+      </div>
+      <div class="connect-cards">
+        <a href="mailto:yejeon@example.com" class="connect-card">
+          <div class="connect-card-icon">✉️</div>
+          <div class="connect-card-info">
+            <strong>이메일</strong>
+            <span>yejeon@example.com</span>
+          </div>
+        </a>
+        <a href="#" class="connect-card">
+          <div class="connect-card-icon">📖</div>
+          <div class="connect-card-info">
+            <strong>예전교회</strong>
+            <span>전북 고창군 공음면</span>
+          </div>
+        </a>
+        <a href="#" class="connect-card">
+          <div class="connect-card-icon">📝</div>
+          <div class="connect-card-info">
+            <strong>블로그 · 글 아카이브</strong>
+            <span>에세이·설교·활동 기록</span>
+          </div>
+        </a>
+        <a href="#" class="connect-card">
+          <div class="connect-card-icon">📺</div>
+          <div class="connect-card-info">
+            <strong>고창방송국</strong>
+            <span>유튜브 지역미디어 채널</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 푸터 -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-left">
+      <strong>김일수 金一洙</strong>
+      <p>예전교회 담임목사 · 전북 고창군 공음면<br>
+      대한예수교장로회(통합) 소속</p>
+    </div>
+    <div class="footer-right">
+      <p>해와 달이 머무는 땅 고창</p>
+      <p>공유지적 인류주의를 삽니다</p>
+    </div>
+  </div>
+</footer>
+
+
+<!-- PWA Service Worker 등록 -->
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/sw.js')
+        .then(reg => console.log('서비스워커 등록 완료:', reg.scope))
+        .catch(err => console.log('서비스워커 오류:', err));
+    });
+  }
+
+  /* 아이폰 홈 화면 추가 안내 배너 */
+  const isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent);
+  const isStandalone = window.matchMedia('(display-mode: standalone)').matches;
+  const bannerShown = localStorage.getItem('pwa-banner-shown');
+
+  if (isIOS && !isStandalone && !bannerShown) {
+    const banner = document.createElement('div');
+    banner.style.cssText = `
+      position: fixed; bottom: 0; left: 0; right: 0; z-index: 9999;
+      background: #3a2e1e; color: #faf7f2;
+      padding: 1rem 1.5rem 2.5rem;
+      font-family: 'Noto Sans KR', sans-serif;
+      font-size: 0.85rem; line-height: 1.7;
+      display: flex; align-items: center; gap: 1rem;
+      box-shadow: 0 -2px 20px rgba(0,0,0,0.3);
+    `;
+    banner.innerHTML = `
+      <span style="font-size:1.6rem; flex-shrink:0;">📲</span>
+      <div style="flex:1;">
+        <strong style="display:block; font-size:0.9rem; margin-bottom:0.2rem;">홈 화면에 추가하기</strong>
+        아래 공유 버튼(□↑)을 누른 뒤 <strong>"홈 화면에 추가"</strong>를 선택하면 앱처럼 사용할 수 있습니다.
+      </div>
+      <button onclick="this.parentElement.remove(); localStorage.setItem('pwa-banner-shown','1')"
+        style="background:none; border:none; color:#c4a882; font-size:1.3rem; cursor:pointer; padding:0.5rem; flex-shrink:0;">✕</button>
+    `;
+    document.body.appendChild(banner);
+  }
+</script>
+
+</body>
+</html>
